@@ -1,0 +1,12 @@
+{% if  name  %}
+    <b>Hello, {{ name }}!!</b>
+{% else %}
+    <b>Hello, World !</b>
+{% endif %}
+
+
+{% if  listname  %}
+   {% for name_k in listname %}
+        <li>{{ name_k }}</li> 
+   {% endfor %} 
+{% endif %}

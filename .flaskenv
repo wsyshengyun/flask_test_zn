@@ -1,2 +1,2 @@
 FLASK_APP = first.py
-FLASK_DEBUG = 1
+flask_debug
