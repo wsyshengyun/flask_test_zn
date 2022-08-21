@@ -1,7 +1,0 @@
-{% import 'macros.html' as macros  %}
-<ul>
-    <b>开始宏的力量吧!</b>
-    {% for comment  in comments  %}
-        {{ macros.render_name(comment ) }}
-    {% endfor %}
-</ul>
