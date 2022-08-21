@@ -1,25 +1,25 @@
-from flask import Flask 
-from flask import render_template
+from flask import Flask
+# import config
 from flask_bootstrap   import  Bootstrap
+from flask_wtf.csrf import CSRFProtect
+
+
 # 创建app
 app = Flask(__name__)
+bootstrap = Bootstrap(app)
 
 # 日志功能 
 with app.app_context():
     import log
+    import config
+    import routes
+    import forms
+
+app.config.from_object(config)
+CSRFProtect(app)
 
 
-bootstrap = Bootstrap(app)
 
 
-@app.route('/')
-def index():
-    return render_template('test_bootstrap.html', name='wsy')
+app.logger.debug('in app.py')
 
-
-@app.route('/user/<name>')
-def user(name):
-    listname = {'wsy', 'liuruifei', 'wanglihang'}
-    return render_template('test_bootstrap.html', name=name)
-
-app.logger.debug('nihao')
