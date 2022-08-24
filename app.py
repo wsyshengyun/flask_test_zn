@@ -9,7 +9,6 @@ from flask_migrate import Migrate
 # 创建app
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
-
 # 日志功能 
 with app.app_context():
     import log
@@ -17,7 +16,11 @@ with app.app_context():
     import routes
     import forms
 
-app.config.from_object(config)
+# 解决flask shell抛出错误
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///D:/_python/my/flaskat/app.db"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+
+# app.config.from_object(config)
 CSRFProtect(app)
 
 

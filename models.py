@@ -1,7 +1,8 @@
 
 from app import db 
 from datetime import datetime 
-
+import sqlite3 
+import config 
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -25,3 +26,8 @@ class Post(db.Model):
     
         
 
+# def connect():
+#     db = sqlite3.connect(config.Config.SQLALCHEMY_DATABASE_URI)
+#     return db 
+
+# db = connect()
